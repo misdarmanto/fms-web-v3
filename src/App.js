@@ -23,16 +23,18 @@ function App() {
   const [currentUserData, setCurrentUserData] = useState(null);
   const [devices, setDevices] = useState([]);
   const [groupDevices, setGroupDevices] = useState([]);
-  const [layouts, setLayouts] = useState([])
+  const [layouts, setLayouts] = useState([]);
   const [currentUserId, setCurrentUserId] = useState("");
-  const [icons, setIcons] = useState([])
+  const [icons, setIcons] = useState([]);
+  const [deleteItems, setDeleteItems] = useState([]);
+  const [saveItems, setSaveItems] = useState([]);
 
   const getDataFromDataBase = (data) => {
     setCurrentUserData(data);
     setDevices(data?.devices || []);
     setGroupDevices(data?.groupDevices || []);
     setCurrentUserId(stringRegex(data?.email));
-    setLayouts(data?.layouts || [])
+    setLayouts(data?.layouts || []);
   };
 
   useEffect(() => {
@@ -62,7 +64,11 @@ function App() {
         groupDevices,
         currentUserId,
         icons,
-        layouts
+        layouts,
+        deleteItems,
+        setDeleteItems,
+        saveItems,
+        setSaveItems,
       }}
     >
       <DndProvider backend={HTML5Backend}>

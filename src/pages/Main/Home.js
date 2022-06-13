@@ -52,15 +52,17 @@ const Home = () => {
   const [openPopUpCreatLayout, setOpenPopUpCreatLayout] = useState(false);
 
   const [layoutName, setLayoutName] = useState("");
-  const [creatNewLayout, setCreatNewLayout] = useState([]);
+  const [newLayout, setCreatNewLayout] = useState([]);
 
   const addLayout = () => {
     if (layoutName === "") return;
     setCreatNewLayout([
-      ...creatNewLayout,
+      ...newLayout,
       { name: layoutName, id: Date.now() },
     ]);
   };
+
+  console.log("hello world")
 
   useEffect(() => {
     setCreatNewLayout(layouts);
@@ -123,7 +125,7 @@ const Home = () => {
         </Stack>
 
         <Stack direction="row" flexWrap="wrap">
-          {creatNewLayout.map((data, index) => (
+          {newLayout.map((data, index) => (
             <DeviceLayout
               key={index}
               dragItems={dragItems}

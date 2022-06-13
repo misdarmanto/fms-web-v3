@@ -60,7 +60,7 @@ const DeviceLayout = ({ dragItems, newLayoutData }) => {
   useEffect(() => {
     if (dropItems.length === 0) return;
     saveLayoutToDataBase();
-  }, [dropItems]);
+  }, []);
 
   useEffect(() => {
     const resultFilter = layouts.filter((value) => {
